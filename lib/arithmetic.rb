@@ -3,8 +3,7 @@ class Arithmetic
     'add' => '+',
     'sub' => '-',
     'and' => '&',
-    'or' => '|',
-    'not' => '!'
+    'or' => '|'
   }
 
   def initialize(command)
