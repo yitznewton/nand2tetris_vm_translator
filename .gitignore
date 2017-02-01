@@ -1,3 +1,4 @@
 *.asm
 *.hack
 *.out
+/tools/bin/*.dat
