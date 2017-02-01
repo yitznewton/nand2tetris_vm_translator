@@ -26,6 +26,6 @@ class Arithmetic
   attr_reader :command
 
   def sign
-    SIGNS.fetch(command)
+    SIGNS.fetch(command[0])
   end
 end

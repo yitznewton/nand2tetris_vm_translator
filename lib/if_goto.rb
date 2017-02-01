@@ -31,10 +31,6 @@ class IfGoto
   end
 
   def label
-    words[1]
-  end
-
-  def words
-    command.split(' ')
+    command[1]
   end
 end

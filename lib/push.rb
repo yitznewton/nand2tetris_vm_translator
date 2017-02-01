@@ -41,22 +41,18 @@ class Push
   end
 
   def constant?
-    words[1] == 'constant'
+    command[1] == 'constant'
   end
 
   def memory_segment
-    words[1]
+    command[1]
   end
 
   def constant
-    words[2]
+    command[2]
   end
 
   def index
-    words[2]
-  end
-
-  def words
-    command.split(' ')
+    command[2]
   end
 end

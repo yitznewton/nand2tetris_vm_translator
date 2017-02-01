@@ -40,6 +40,6 @@ class Compare
   attr_reader :command, :label_index
 
   def comparison
-    MAP.fetch(command)
+    MAP.fetch(command[0])
   end
 end
