@@ -1,5 +1,6 @@
 require_relative 'arithmetic'
 require_relative 'compare'
+require_relative 'goto'
 require_relative 'if_goto'
 require_relative 'label'
 require_relative 'negate'
@@ -21,6 +22,7 @@ class Command
     'or'      => Arithmetic,
     'not'     => Not,
     'label'   => Label,
+    'goto'    => Goto,
     'if-goto' => IfGoto
   }
 
