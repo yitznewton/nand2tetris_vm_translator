@@ -1,2 +1,3 @@
-/StackArithmetic/StackTest/StackTest.asm
-/StackArithmetic/StackTest/StackTest.hack
+*.asm
+*.hack
+*.out
