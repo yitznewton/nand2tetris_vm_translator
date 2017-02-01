@@ -13,6 +13,8 @@ class Pop
 
   private
 
+  attr_reader :command
+
   def cache_destination
     %Q(
       #{put_destination_in_d}
@@ -42,16 +44,10 @@ class Pop
   end
 
   def memory_segment
-    words[1]
+    command[1]
   end
 
   def index
-    words[2]
+    command[2]
   end
-
-  def words
-    command.split(' ')
-  end
-
-  attr_reader :command
 end

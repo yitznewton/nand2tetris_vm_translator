@@ -25,11 +25,11 @@ class Command
   }
 
   def self.parse(command)
-    MAP.fetch(first_word(command)).new(command)
+    words = words(command)
+    MAP.fetch(words[0]).new(words)
   end
 
-  def self.first_word(command)
-    finish = (command.index(' ') || 0) - 1
-    command[0..finish]
+  def self.words(command)
+    command.split(' ')
   end
 end
