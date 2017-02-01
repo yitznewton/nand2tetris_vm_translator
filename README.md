@@ -19,6 +19,8 @@ To run the nand2tetris tests:
 ```shell
 $ ruby ./VMTranslator.rb ./StackArithmetic/StackTest/StackTest.vm > ./StackArithmetic/StackTest/StackTest.asm
 $ ./tools/CPUEmulator.sh ./StackArithmetic/StackTest/StackTest.tst
+$ ruby ./VMTranslator.rb ./ProgramFlow/BasicLoop/BasicLoop.vm > ./ProgramFlow/BasicLoop/BasicLoop.asm
+$ ./tools/CPUEmulator.sh ./ProgramFlow/BasicLoop/BasicLoop.tst
 ```
 
 ## License

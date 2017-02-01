@@ -10,6 +10,7 @@ end
 each_line do |line|
   next if line.empty?
 
+  puts "// #{line.command}"
   puts Command.parse(line.command).to_hack
 end
 

@@ -1,21 +1,27 @@
 require_relative 'arithmetic'
 require_relative 'compare'
+require_relative 'if_goto'
+require_relative 'label'
 require_relative 'negate'
 require_relative 'not'
+require_relative 'pop'
 require_relative 'push'
 
 class Command
   MAP = {
-    'push' => Push,
-    'add'  => Arithmetic,
-    'sub'  => Arithmetic,
-    'eq'   => Compare,
-    'gt'   => Compare,
-    'lt'   => Compare,
-    'neg'  => Negate,
-    'and'  => Arithmetic,
-    'or'   => Arithmetic,
-    'not'  => Not
+    'push'    => Push,
+    'pop'     => Pop,
+    'add'     => Arithmetic,
+    'sub'     => Arithmetic,
+    'eq'      => Compare,
+    'gt'      => Compare,
+    'lt'      => Compare,
+    'neg'     => Negate,
+    'and'     => Arithmetic,
+    'or'      => Arithmetic,
+    'not'     => Not,
+    'label'   => Label,
+    'if-goto' => IfGoto
   }
 
   def self.parse(command)
