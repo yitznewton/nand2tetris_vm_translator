@@ -6,11 +6,7 @@ class StaticPop
   end
 
   def to_hack
-    %Q(
-      #{Stack.pop_value_to_d}
-      #{address}
-      M=D
-    )
+    Stack.pop_value_to_address(address)
   end
 
   private

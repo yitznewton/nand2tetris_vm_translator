@@ -1,4 +1,20 @@
 module Stack
+  def self.pop_value_to_address(address)
+    %Q(
+      #{pop_value_to_d}
+      #{address}
+      M=D
+    )
+  end
+
+  def self.push_address(address)
+    %Q(
+      #{address}
+      D=M
+      #{push_d}
+    )
+  end
+
   def self.pop_value_to_d
     %Q(
       @SP
