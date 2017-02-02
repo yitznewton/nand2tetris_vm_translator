@@ -1,5 +1,6 @@
 require_relative 'arithmetic'
 require_relative 'compare'
+require_relative 'function'
 require_relative 'goto'
 require_relative 'if_goto'
 require_relative 'label'
@@ -9,25 +10,28 @@ require_relative 'pop'
 require_relative 'push'
 require_relative 'pointer_pop'
 require_relative 'pointer_push'
+require_relative 'return'
 require_relative 'static_pop'
 require_relative 'static_push'
 
 class Command
   BASIC_COMMANDS = {
-    'push'    => Push,
-    'pop'     => Pop,
-    'add'     => Arithmetic,
-    'sub'     => Arithmetic,
-    'eq'      => Compare,
-    'gt'      => Compare,
-    'lt'      => Compare,
-    'neg'     => Negate,
-    'and'     => Arithmetic,
-    'or'      => Arithmetic,
-    'not'     => Not,
-    'label'   => Label,
-    'goto'    => Goto,
-    'if-goto' => IfGoto
+    'push'     => Push,
+    'pop'      => Pop,
+    'add'      => Arithmetic,
+    'sub'      => Arithmetic,
+    'eq'       => Compare,
+    'gt'       => Compare,
+    'lt'       => Compare,
+    'neg'      => Negate,
+    'and'      => Arithmetic,
+    'or'       => Arithmetic,
+    'not'      => Not,
+    'label'    => Label,
+    'goto'     => Goto,
+    'if-goto'  => IfGoto,
+    'function' => Function,
+    'return'   => Return
   }
 
   POINTER_SEGMENT = 'pointer'

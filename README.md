@@ -25,6 +25,8 @@ $ ruby ./VMTranslator.rb ./ProgramFlow/FibonacciSeries/FibonacciSeries.vm > ./Pr
 $ ./tools/CPUEmulator.sh ./ProgramFlow/FibonacciSeries/FibonacciSeries.tst
 $ ruby ./VMTranslator.rb ./MemoryAccess/StaticTest/StaticTest.vm > ./MemoryAccess/StaticTest/StaticTest.asm
 $ ./tools/CPUEmulator.sh ./MemoryAccess/StaticTest/StaticTest.tst
+$ ruby ./VMTranslator.rb ./FunctionCalls/SimpleFunction/SimpleFunction.vm > ./FunctionCalls/SimpleFunction/SimpleFunction.asm
+$ ./tools/CPUEmulator.sh ./FunctionCalls/SimpleFunction/SimpleFunction.tst
 ```
 
 ## License
