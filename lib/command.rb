@@ -7,9 +7,11 @@ require_relative 'negate'
 require_relative 'not'
 require_relative 'pop'
 require_relative 'push'
+require_relative 'pointer_pop'
+require_relative 'pointer_push'
 
 class Command
-  MAP = {
+  BASIC_COMMANDS = {
     'push'    => Push,
     'pop'     => Pop,
     'add'     => Arithmetic,
@@ -26,9 +28,32 @@ class Command
     'if-goto' => IfGoto
   }
 
+  POINTER_SEGMENT = 'pointer'
+
+  POINTER_COMMANDS = {
+    'push' => PointerPush,
+    'pop'  => PointerPop
+  }
+
   def self.parse(command)
     words = words(command)
-    MAP.fetch(words[0]).new(words)
+    command_from(words)
+  end
+
+  def self.command_from(words)
+    pointer?(words) ? pointer_command(words) : basic_command(words)
+  end
+
+  def self.pointer?(words)
+    words[1] == POINTER_SEGMENT
+  end
+
+  def self.pointer_command(words)
+    POINTER_COMMANDS.fetch(words[0]).new(words)
+  end
+
+  def self.basic_command(words)
+    BASIC_COMMANDS.fetch(words[0]).new(words)
   end
 
   def self.words(command)

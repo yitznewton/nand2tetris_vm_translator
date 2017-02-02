@@ -5,7 +5,7 @@ class Goto
 
   def to_hack
     %Q(
-      @#{label}
+      @#{scope}.#{label}
       0;JMP
     )
   end
@@ -13,6 +13,10 @@ class Goto
   private
 
   attr_reader :command
+
+  def scope
+    'LOLdunno'
+  end
 
   def label
     command[1]

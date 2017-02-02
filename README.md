@@ -21,6 +21,8 @@ $ ruby ./VMTranslator.rb ./StackArithmetic/StackTest/StackTest.vm > ./StackArith
 $ ./tools/CPUEmulator.sh ./StackArithmetic/StackTest/StackTest.tst
 $ ruby ./VMTranslator.rb ./ProgramFlow/BasicLoop/BasicLoop.vm > ./ProgramFlow/BasicLoop/BasicLoop.asm
 $ ./tools/CPUEmulator.sh ./ProgramFlow/BasicLoop/BasicLoop.tst
+$ ruby ./VMTranslator.rb ./ProgramFlow/FibonacciSeries/FibonacciSeries.vm > ./ProgramFlow/FibonacciSeries/FibonacciSeries.asm
+$ ./tools/CPUEmulator.sh ./ProgramFlow/FibonacciSeries/FibonacciSeries.tst
 ```
 
 ## License
