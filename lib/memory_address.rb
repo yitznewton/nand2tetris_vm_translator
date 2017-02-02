@@ -1,7 +1,9 @@
 class MemoryAddress
   MEMORY_SEGMENTS = {
     'local' => '@LCL',
-    'argument' => '@ARG'
+    'argument' => '@ARG',
+    'this' => '@THIS',
+    'that' => '@THAT'
   }
 
   def initialize(segment, index)
