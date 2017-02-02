@@ -1,16 +1,15 @@
-require_relative 'pointer_address'
 require_relative 'stack'
 
-class PointerPush
+class StaticPop
   def initialize(command)
     @command = command
   end
 
   def to_hack
     %Q(
+      #{Stack.pop_value_to_d}
       #{address}
-      D=M
-      #{Stack.push_d}
+      M=D
     )
   end
 
@@ -19,7 +18,7 @@ class PointerPush
   attr_reader :command
 
   def address
-    PointerAddress.fetch(index)
+    "@#{index.to_i + 16}"
   end
 
   def index
