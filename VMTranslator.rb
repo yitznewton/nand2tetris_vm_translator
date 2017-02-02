@@ -2,9 +2,15 @@ require_relative 'lib/command'
 require_relative 'lib/line'
 
 def each_line
-  File.foreach(ARGV[0]) do |line|
-    yield Line.new(line)
+  files.each do |f|
+    File.foreach(f) do |line|
+      yield Line.new(line)
+    end
   end
+end
+
+def files
+  Dir.glob(File.join(ARGV[0], '*.vm'))
 end
 
 each_line do |line|
