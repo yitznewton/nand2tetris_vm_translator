@@ -6,11 +6,7 @@ class StaticPush
   end
 
   def to_hack
-    %Q(
-      #{address}
-      D=M
-      #{Stack.push_d}
-    )
+    Stack.push_address(address)
   end
 
   private
