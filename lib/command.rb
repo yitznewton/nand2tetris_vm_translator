@@ -9,6 +9,8 @@ require_relative 'pop'
 require_relative 'push'
 require_relative 'pointer_pop'
 require_relative 'pointer_push'
+require_relative 'static_pop'
+require_relative 'static_push'
 
 class Command
   BASIC_COMMANDS = {
@@ -29,10 +31,16 @@ class Command
   }
 
   POINTER_SEGMENT = 'pointer'
+  STATIC_SEGMENT  = 'static'
 
   POINTER_COMMANDS = {
     'push' => PointerPush,
     'pop'  => PointerPop
+  }
+
+  STATIC_COMMANDS = {
+    'push' => StaticPush,
+    'pop'  => StaticPop
   }
 
   def self.parse(command)
@@ -41,15 +49,29 @@ class Command
   end
 
   def self.command_from(words)
-    pointer?(words) ? pointer_command(words) : basic_command(words)
+    if pointer?(words)
+      pointer_command(words)
+    elsif static?(words)
+      static_command(words)
+    else
+      basic_command(words)
+    end
   end
 
   def self.pointer?(words)
     words[1] == POINTER_SEGMENT
   end
 
+  def self.static?(words)
+    words[1] == STATIC_SEGMENT
+  end
+
   def self.pointer_command(words)
     POINTER_COMMANDS.fetch(words[0]).new(words)
+  end
+
+  def self.static_command(words)
+    STATIC_COMMANDS.fetch(words[0]).new(words)
   end
 
   def self.basic_command(words)
