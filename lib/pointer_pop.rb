@@ -1,18 +1,14 @@
-class PointerPop
-  POINTER_ADDRESSES = {
-    '0' => '@THIS',
-    '1' => '@THAT'
-  }
+require_relative 'pointer_address'
+require_relative 'stack'
 
+class PointerPop
   def initialize(command)
     @command = command
   end
 
   def to_hack
     %Q(
-      @SP
-      AM=M-1
-      D=M
+      #{Stack.pop_value_to_d}
       #{address}
       M=D
     )
@@ -23,7 +19,7 @@ class PointerPop
   attr_reader :command
 
   def address
-    POINTER_ADDRESSES.fetch(index)
+    PointerAddress.fetch(index)
   end
 
   def index

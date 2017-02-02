@@ -4,20 +4,12 @@ class IfGoto
   end
 
   def to_hack
-    put_value_in_d + conditional_jump
+    Stack.pop_value_to_d + conditional_jump
   end
 
   private
 
   attr_reader :command
-
-  def put_value_in_d
-    %Q(
-      @SP
-      AM=M-1
-      D=M
-    )
-  end
 
   def conditional_jump
     %Q(

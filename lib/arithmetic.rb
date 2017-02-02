@@ -12,9 +12,7 @@ class Arithmetic
 
   def to_hack
     %Q(
-      @SP
-      AM=M-1
-      D=M
+      #{Stack.pop_value_to_d}
       @SP
       A=M-1
       M=M#{sign}D
