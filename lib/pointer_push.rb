@@ -1,9 +1,6 @@
-class PointerPush
-  POINTER_ADDRESSES = {
-    '0' => '@THIS',
-    '1' => '@THAT'
-  }
+require_relative 'pointer_address'
 
+class PointerPush
   def initialize(command)
     @command = command
   end
@@ -12,10 +9,7 @@ class PointerPush
     %Q(
       #{address}
       D=M
-      @SP
-      M=M+1
-      A=M-1
-      M=D
+      #{Stack.push_d}
     )
   end
 
@@ -24,7 +18,7 @@ class PointerPush
   attr_reader :command
 
   def address
-    POINTER_ADDRESSES.fetch(index)
+    PointerAddress.fetch(index)
   end
 
   def index

@@ -1,4 +1,5 @@
 require_relative 'memory_address'
+require_relative 'stack'
 
 class Pop
   LOCATION_OF_CACHE = '@R13'
@@ -8,7 +9,7 @@ class Pop
   end
 
   def to_hack
-    cache_destination + put_value_in_d + save
+    cache_destination + Stack.pop_value_to_d + save
   end
 
   private
@@ -25,14 +26,6 @@ class Pop
 
   def put_destination_in_d
     MemoryAddress.new(memory_segment, index).to_hack('D')
-  end
-
-  def put_value_in_d
-    %Q(
-      @SP
-      AM=M-1
-      D=M
-    )
   end
 
   def save

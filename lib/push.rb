@@ -1,4 +1,5 @@
 require_relative 'memory_address'
+require_relative 'stack'
 
 class Push
   def initialize(command)
@@ -6,7 +7,7 @@ class Push
   end
 
   def to_hack
-    put_value_in_d + put_d_on_stack
+    put_value_in_d + Stack.push_d
   end
 
   private
@@ -25,15 +26,6 @@ class Push
         D=M
       )
     end
-  end
-
-  def put_d_on_stack
-    %Q(
-      @SP
-      M=M+1
-      A=M-1
-      M=D
-    )
   end
 
   def put_source_in_a
